@@ -1,7 +1,7 @@
 /* games.css */
 .games {
   width: 100%;
-  height: 180vh;
+  height: 200vh;
   background-color: black;
   color: white;
   font-family: 'Nunito', sans-serif;
@@ -13,6 +13,7 @@
   text-decoration: none;
   padding-right: 100px;
   margin-bottom: 20px; /* Common bottom margin for both buttons */
+  margin-left: 10vh;
 }
 
 .genre-selection button {
@@ -134,7 +135,9 @@
   .genre-selection {
     flex-direction: column; /* Stack buttons vertically for mobile */
     align-items: center; /* Center-align buttons */
-    text-align: center; /* Center-align button text */
+    text-align: center; 
+    margin-left: 10vh;
+    padding-top: 5vh;
   }
 
   .genre-selection button {

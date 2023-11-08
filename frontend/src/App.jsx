@@ -9,7 +9,7 @@ import Games from './Games/Games.jsx';
 import Loader from './loader/Loader.jsx'; // Make sure to import the Loader component
 import './App.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import Main from './MainPage/Main.jsx';
 import Userprofile from './userProfile/Userprofile.jsx';
 
 const App = () => {
@@ -17,16 +17,12 @@ const App = () => {
     <Router>
       <div>
         <Navbar />
+
         <Switch>
-          <Route exact path="/" component={Intro} />
-          {/* <Route path="/userProfile" component={Userprofile} /> */}
+          <Route exact path="/" component={Main} />
+          <Route path="/userProfile" component={Userprofile} />
         </Switch>
-        <Mid />
-        <Events />
-        <Games />
-        <Subscription />
-        <Footer />
-        <Userprofile />
+        
       </div>
     </Router>
   );
