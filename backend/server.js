@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Endpoint for user registration (creating a new user)
-app.post('/userProfile', async (req, res) => {
+app.post('/Userprofile', async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -90,9 +90,9 @@ app.post('/userProfile', async (req, res) => {
 // });
 
 app.get('/userProfile', (req, res) => {
-res.sendStatus(200);
-}
-)
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'src', 'userProfile', 'Userprofile.jsx'));
+});
+
 
 
 app.listen(PORT, () => {
