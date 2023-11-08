@@ -1,0 +1,163 @@
+/* games.css */
+.games {
+  width: 100%;
+  height: 180vh;
+  background-color: black;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
+
+.genre-selection {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  padding-right: 100px;
+  margin-bottom: 20px; /* Common bottom margin for both buttons */
+}
+
+.genre-selection button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 30px 30px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  padding: 8px 20px; /* Adjust padding for space and appearance */
+  border-radius: 10px; /* Rounded corners for button */
+}
+
+
+/* Add style for the selected button */
+
+
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10vh;
+}
+
+.product-card {
+  border: 1px solid #fff;
+  margin: 8px;
+  margin-bottom: 30vh;
+  width: 200px;
+  height: 250px; /* Adjust the card height as needed */
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-details {
+   padding: 16px; 
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 16px; */
+}
+
+.product-details {
+  text-align: left;
+}
+
+.product-details h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 22px;
+  font-family: 'Nunito', sans-serif;
+  /* padding-bottom: 10px; */
+}
+
+.product-details p {
+  margin: 0;
+  text-align: left;
+  color: #ffffff7e;
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+  padding-top: 5px;
+}
+
+.product-details button{
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  margin-top: 10px;
+  /* transition: transform 0.2s; */
+}
+
+.genre-selection button.selected {
+  background-color: #023e8a; /* Change the background color to a different color to indicate selection */
+  color: #fff; /* Change text color */
+  padding: 0;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+/* games.css */
+
+/* Original CSS code here... */
+
+/* Media Query for Mobile Devices */
+
+@media (max-width: 768px) {
+  .games {
+    height: auto; /* Adjust height for smaller screens */
+  }
+
+  .genre-selection {
+    flex-direction: column; /* Stack buttons vertically for mobile */
+    align-items: center; /* Center-align buttons */
+    text-align: center; /* Center-align button text */
+  }
+
+  .genre-selection button {
+    font-size: 20px; /* Increase font size for mobile */
+    margin: 10px; /* Adjust margin for mobile */
+    padding: 5px; /* Adjust padding for mobile */
+  }
+
+  .product-card {
+    margin: 8px;
+    margin-bottom: 20vh; /* Adjust margin for mobile */
+    width: 90%; /* Expand card width to nearly full width */
+
+  }
+
+  .product-details h2 {
+    font-size: 18px; /* Reduce font size for mobile */
+    padding-bottom: 5px; /* Adjust padding for mobile */
+  }
+
+  .product-details p {
+    font-size: 12px; /* Reduce font size for mobile */
+  }
+  
+ 
+}

@@ -1,0 +1,79 @@
+/* styles.css */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Set the height to fill the viewport */
+    /* Remove overflow: hidden; to allow scrolling */
+  }
+  
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain the video's aspect ratio while covering the container */
+    margin-bottom: 1000px;
+}
+  
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #fff; 
+    text-align: center; /* Center text horizontally */
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background for better readability */
+    padding: 20px; 
+  }
+  
+  /* border-box.css */
+  
+  .content p {
+    margin: 0;           /* Remove margins */
+    padding: 0;          /* Remove padding */
+    border: none;        /* Remove borders */
+    text-decoration: none; /* Remove text decoration, such as underlines */
+    line-height: 1;      /* Adjust line height as needed */
+    font-size: 16px;     /* Adjust font size as needed */
+  }
+  .content h3{
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+
+  .ityped-cursor {
+    animation: blink 1s infinite;
+  }
+  .content h1 {
+    font-size: 100px;
+    margin-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+  }
+  
+  p {
+    font-size: 28px;
+    margin-top: 0; /* Remove top margin for the paragraph */
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+   .content h1 {
+      font-size: 50px; /* Adjust font size for smaller screens */
+    }
+    
+    .content h3 {
+      font-size: 30px; /* Adjust font size for smaller screens */
+    }
+  }
+  

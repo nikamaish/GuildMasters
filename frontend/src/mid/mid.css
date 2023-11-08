@@ -1,0 +1,121 @@
+.mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #E4F6F8;
+    padding: 20px;
+    height: 160vh; 
+}  
+
+.page-mid {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'Nunito', 'Open Sans', 'Roboto', sans-serif;
+}
+
+.page-mid h1 {
+    color: rgb(13, 13, 156);
+    font-size: 40px;
+    /* padding-top: 10px; */
+}
+
+.page-mid p {
+    font-size: 20px;
+    padding: 10px 20px 0 20px; 
+    line-height: 2;
+}
+
+.page-low {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-basis: calc(33.33% - 40px); /* Adjust the width of each section and margin */
+    /* padding: 20px; */
+    border-top: 2px solid #007bff; 
+    text-align: center;
+    /* position: relative; */
+    /* padding-bottom: 200px; */
+
+
+    /* margin-bottom: 20px; Add margin to separate the sections vertically */
+}
+
+
+.section h1 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.section h1:hover{
+    cursor: pointer;
+    color: #007bff;
+}
+
+.section p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.section-button {
+    background-color: #E4F6F8;
+    padding: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    border-color: #007bff;
+    transition: box-shadow 0.3s ease;
+}
+
+.section-button:hover {
+    box-shadow: 0 0 20px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* events.css */
+
+/* ... Your existing CSS ... */
+
+@media (max-width: 520px) {
+    
+    .page-low{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        
+    }
+    .section {
+    display: flex;
+    flex-direction: column; /* Stack sections below each other */
+    align-items: center; /* Center the sections horizontally */
+   
+  }
+  .section-button{
+    margin-bottom: 50px;
+  }
+    .mid-mid {
+      margin-left: 0; /* Remove margin-left to center mid-mid section */
+      margin-right: 0; /* Remove margin-right to center mid-mid section */
+    }
+  
+    .mid {
+      height: auto; /* Adjust the height as needed for mobile devices */
+    }
+  }
+  

@@ -1,0 +1,258 @@
+.events {
+
+  text-align: center; /* Center the sections horizontally */
+  width: 100%;
+  height: 140vh;  
+  background-color: #E4F6F8;
+}
+.top-head{
+  background-color: #E4F6F8;
+  text-align:left;
+  font-size: 30px;
+  padding-top: 30px;
+  padding-left: 40px;
+
+}
+
+.sections {
+  display: flex;
+  flex-direction: row;
+  background-color: #E4F6F8;
+}
+.left,
+.mid,
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 700px;
+  /* justify-content: center; Center the content horizontally */
+   /* align-items: center;  Center the content vertically */
+}
+
+.section-image {
+  margin-top: 30px;
+  width: 350px;
+  height: 350px;
+  transition: transform 0.3s;
+}
+.section-image:hover {
+  transform: scale(1.1); /* Scale the image up by 10% on hover */
+}
+
+.mid img{
+  margin-top: 10px;
+  margin-left: 28px;
+}
+
+.left img{
+  margin-left: 50px;
+}
+
+.text{
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  padding-left: 50px;
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+.events-head {
+  font-size: 25px;
+  font-family: 'Nunito', 'Open Sans', 'Roboto', sans-serif;
+  /* align-items: center; Center the text vertically */
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start ;
+  padding-left: 45px;
+}
+.events-head a{
+  text-decoration: none;
+  color: #007bff;
+  padding-right: 50px;
+  
+}
+.events-head a:hover{
+  color: black;
+}
+.events-p{
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  padding: 0 15px;
+  font-family: 'Nunito', 'Open Sans', 'Roboto', sans-serif;
+}
+.events-midhead {
+  font-size: 25px;
+  font-family: 'Nunito', 'Open Sans', 'Roboto', sans-serif;
+  display: flex; /* Add display: flex; */
+  align-items: center; /* Center the text vertically */
+  margin-left: 25px;
+  margin-top: 53px;
+  margin-right: 0;
+  padding-bottom: 20px;
+}
+.events-midhead a{
+  text-decoration: none;
+  color: #007bff; 
+}
+.events-midhead a:hover{
+  color: black;
+}
+.events-midp {
+  font-size: 20px;
+  margin-top: 50px;
+  font-family: 'Nunito', 'Open Sans', 'Roboto', sans-serif;
+  /* display: flex; Add display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; Center the text vertically */
+  padding: 0 15px;
+}
+
+.events-midp > span {
+  /* margin-top: -50px; Adjust this value as needed */
+  /* display: block; Ensure the span takes the full width */
+  position: relative;
+  top: -75px;
+  size: 20px;
+  color: black;
+}
+
+
+
+/* Responsive styles for mobile screens */
+@media (max-width: 768px) {
+  .sections {
+    flex-direction: column; /* Stack sections vertically on small screens */
+  }
+
+  .left,
+  .mid,
+  .right {
+    align-items: center; /* Center content horizontally on small screens */
+    text-align: center; /* Center text within sections */
+    max-height: 1800px;
+  }
+
+  .section-image {
+    max-width: 100%; /* Make images full-width on small screens */
+  }
+  
+  .events-midhead {
+    margin-left: 0; /* Reset margin for small screens */
+  }
+  
+  .events-p,
+  .events-midp {
+    margin-top: 20px; /* Add spacing between paragraphs on small screens */
+  margin-bottom: 20px;
+  }
+  
+  .events-midp > span {
+    top: 0; /* Reset the top position for the span */
+  }
+
+  .events-midhead{
+    margin-top: 25px;
+  }
+}
+
+
+
+.horizontal-line {
+  border: 1px solid black;
+  /* Thin black border *//* Adjust the margin to control the space above the line*/
+  margin: 0 50px;
+}
+
+
+/* Default styles for screens larger than 768px (desktop) */
+@media (min-width: 769px) {
+  .events-head {
+    padding-left: 45px; /* Keep the original padding for desktop */
+  }
+  
+  .events-midhead {
+    margin-left: 25px; /* Keep the original margin for desktop */
+  }
+
+  .left,
+  .mid,
+  .right {
+    max-height: 700px; /* Keep the original max-height for desktop */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text within sections */
+  }
+
+  .section-image {
+    max-width: 100%; /* Make images full-width on desktop screens */
+  }
+
+  .events-p,
+  .events-midp {
+    margin-top: 0; /* Reset margin-top for paragraphs on desktop */
+    margin-bottom: 0;
+  }
+
+  .events-midp > span {
+    top: 0; /* Reset the top position for the span */
+  }
+
+  .events-midhead {
+    margin-top: 53px; /* Keep the original margin-top for desktop */
+  }
+
+  .horizontal-line {
+    margin: 0 50px; /* Keep the original margin for desktop */
+  }
+}
+
+/* import React from 'react'
+import './events.css';
+
+const Events = () => {
+  return (
+    <div>
+
+<div className="events"> 
+
+      <h1 className='top-head'>The latest Events from Guildmasters</h1>
+      <hr className='horizontal-line' />
+
+
+    <div className="sections">
+
+      <div className="left">
+        <img src="https://img.freepik.com/premium-photo/gamer-playing-desktop-pc-computer-gaming-illustration_691560-5611.jpg" alt="" className="section-image" />
+        <p className='text'> Events </p>
+        <h1 className='events-head'><a href="/">Unlock the treasure now!</a></h1>
+        <p className='events-p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae harum sit sint cum odit perspiciatis perferendis nesciunt voluptatem molestias dicta blanditiis quisquam asperiores veniam veritatis, illo laboriosam deserunt minus accusantium!</p>
+      </div>
+
+      <div className="mid">
+      <img src="https://img.freepik.com/premium-photo/gamer-playing-desktop-pc-computer-gaming-illustration_691560-5611.jpg" alt="" className="section-image" />
+      <h1 className='events-midhead'> <a href="/">Unlock the treasure now!</a></h1>
+      <p className='events-midp'>
+      <span>  
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium adipisci ratione exercitationem, eos harum similique tempore dolore dignissimos sed maxime itaque. Iste blanditiis aliquam explicabo laborum aliquid molestias incidunt expedita.
+        </span>
+        </p>
+      </div>
+
+      <div className="right">
+      <img src="https://img.freepik.com/premium-photo/gamer-playing-desktop-pc-computer-gaming-illustration_691560-5611.jpg" alt="" className="section-image" />
+      <p className='text'> Events </p>
+       <h1 className='events-head'> <a href="/">Unlock the treasure now!</a></h1>
+      <p className='events-p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quos esse ipsum? Maxime quos autem culpa non unde, ut animi amet error repellendus in similique tenetur aliquid numquam porro accusantium.</p>
+      </div>
+      
+      </div>
+
+      </div> 
+    </div>
+  )
+}
+
+export default Events */

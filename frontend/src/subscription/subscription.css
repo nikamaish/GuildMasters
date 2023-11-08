@@ -1,0 +1,68 @@
+.subscription {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  line-height: 1.5;
+  background: radial-gradient(100% 185.14% at 100% 100%, rgb(52, 195, 255) 0%, rgb(51, 142, 238) 100%);
+  padding: 0 20px;
+  overflow: hidden;
+  height: 180vh;
+}
+
+.leftt {
+  flex: 0 0 calc(30% - 20px);
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 70px;
+}
+
+.midd,
+.rightt {
+  flex: 0 0 calc(35% - 20px); /* Adjust the width to make them slightly wider and rectangular */
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 4px solid #fff;
+  margin: 10px;
+  margin-top: 100px;
+  height: 80vh; /* Adjust the height as per your preference */
+}
+
+.leftt h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 40px;
+}
+.midd h1, .rightt h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 35px;
+}
+
+.leftt p, .midd p, .rightt p {
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.midd p,
+.rightt p {
+  padding-top: 30px;
+}
+
+.midd:hover,
+.rightt:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+@media (max-width: 700px) {
+  .subscription {
+    flex-direction: row;
+    height: 350vh; 
+  }
+  .midd, .rightt {
+    flex: 0 0 calc(100% - 20px); /* Full width for .midd and .rightt on small screens */
+     margin-top: -300px; 
+    
+  }
+}
