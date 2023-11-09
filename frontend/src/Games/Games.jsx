@@ -47,7 +47,7 @@ const Games = () => {
     {
       id:6,
       img: "https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S2_1200x1600-ebcb79b7c8aa2432c3ce52dfd4fc4ae0",
-      name: 'Genshin Impact',
+      name: 'Rocket League',
       price: '$39.99',
       description: 'Base Game',
     },
@@ -68,7 +68,7 @@ const Games = () => {
     },
     {
       id:9,
-      img:"https://m.media-amazon.com/images/M/MV5BYjEzMTM4ZmQtZTEzYS00ZGVmLTkwM2EtNWNmMDI4OWQ0MjBmXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_FMjpg_UX1000_.jpg",
+      img:"https://image.jeuxvideo.com/medias/163129/1631287693-8700-jaquette-avant.jpg",
       name:'GTA V',
       price:'$39.99',
       description: 'Base Game',

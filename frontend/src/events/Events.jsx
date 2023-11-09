@@ -1,5 +1,7 @@
 import React from 'react';
 import './events.css';
+import { Tilt } from 'react-tilt';
+
 
 const eventData = [
   {
@@ -20,6 +22,18 @@ const eventData = [
   // Add more data for other events here
 ];
 
+const defaultOptions = {
+  reverse: false,
+  max: 35,
+  perspective: 1000,
+  scale: 1.1,
+  speed: 1000,
+  transition: true,
+  axis: null,
+  reset: true,
+  easing: "cubic-bezier(.03,.98,.52,.99)",
+};
+
 const Events = () => {
   return (
     <div>
@@ -29,7 +43,11 @@ const Events = () => {
       <div className="events">
         {eventData.map((event, index) => (
           <div className="sections" key={index}>
-            <img src={event.imgUrl} className='rectangle' alt="" />
+
+            <Tilt options={defaultOptions}>
+              <img src={event.imgUrl} className='rectangle' alt="" />
+            </Tilt>
+          
             <p className='small-head'>Events</p>
             <h1 className='small-h'><a href="">{event.title}</a></h1>
             <p className='small-p'>{event.description}</p>
