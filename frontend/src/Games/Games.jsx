@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './games.css';
+import Cart from '../cart/Cart.jsx';
 
 const Games = () => {
   const [selectedGenre, setSelectedGenre] = useState('Top Trending');
+  const [cart, setCart] = useState([]);
 
   const halloweenProducts = [
     {
@@ -103,6 +105,14 @@ const Games = () => {
     setSelectedGenre(genre);
   };
 
+  const handleAddToCart = (product) => {
+    setCart((prevCart) => {
+      const updatedCart = [...prevCart, product];
+      console.log('Updated cart:', updatedCart);
+      return updatedCart;
+    });
+  };
+
   const genreButtons = [
     { label: 'Top Trending', value: 'Top Trending' },
     { label: 'Halloween Spotlight', value: 'Halloween' },
@@ -121,7 +131,7 @@ const Games = () => {
   return (
     <div className="games">
       <div className="genre-selection">
-      {genreButtons.map((genreButton) => (
+        {genreButtons.map((genreButton) => (
           <button
             key={genreButton.value}
             onClick={() => handleGenreClick(genreButton.value)}
@@ -138,13 +148,18 @@ const Games = () => {
             <div className="product-details">
               <h2>{product.name}</h2>
               <p>{product.description}</p>
-              <button>{product.price}</button>
+              <p>{product.price}</p>
+              <button onClick={() => handleAddToCart(product)}>Add to cart</button>
             </div>
           </div>
         ))}
       </div>
+      <Cart cartItems={cart} />
     </div>
   );
 };
+
+
+
 
 export default Games;

@@ -7,6 +7,7 @@ import Subscription from '../subscription/Subscription.jsx';
 import Footer from '../footer/Footer.jsx';
 import Games from '../Games/Games.jsx';
 import Userprofile from '../userProfile/Userprofile.jsx';
+import Cart from '../cart/Cart.jsx';
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
         <Mid />
         <Events />
         <Games />
+        {/* <Cart/> */}
         <Subscription />
         <Footer />
       </div>
