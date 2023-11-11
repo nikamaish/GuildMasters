@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Cart = ({ cartItems }) => {
+  console.log('Cart component rendered with cartItems:', cartItems);
   if (!cartItems ) {
     return <p>No items in the cart.</p>;
   }

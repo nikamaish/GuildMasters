@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './userprofile.css';
-
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,14 +21,19 @@ const Login = () => {
       });
 
       if (response.ok) {
-        // Handle successful response (e.g., redirect or show success message)
-        console.log('User logged in successfully!');
+        // Handle successful response
+        setSuccessMessage('User logged in successfully!');
+        setErrorMessage(''); // Clear any previous error message
       } else {
-        // Handle error response (e.g., show error message)
-        console.error('Error logging in');
+        // Handle error response
+        const data = await response.json();
+        setErrorMessage(data.error || 'Error logging in');
+        setSuccessMessage('');
       }
     } catch (error) {
       console.error('Error:', error);
+      setErrorMessage('An unexpected error occurred.');
+      setSuccessMessage('');
     }
   };
 
@@ -49,6 +56,15 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Continue</button>
+            {successMessage && <p className="success-message">{successMessage}</p>}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <div className='sign-up'>            
+            <p>Do not have an account</p>
+            <h3 >
+              <Link to="userProfile">Sign Up Here</Link>
+            </h3>
+            </div>
+
           </form>
         </div>
       </div>

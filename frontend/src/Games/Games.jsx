@@ -154,7 +154,7 @@ const Games = () => {
           </div>
         ))}
       </div>
-      <Cart cartItems={cart} />
+      <Cart cartItems={cart}  />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .userProfile {
     width: 100%;
-    height: 115vh;
+    height: 125vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,13 +66,38 @@
 .big-container form p {
  font-size: 15px;   
  font-weight: 800;
- margin-top: 7vh;
+
 }
 .big-container form a, h3{
     text-decoration: none;
     font-family: 'Nunito', sans-serif;
+    /* margin-top: 2vh; */
+}
+
+
+.big-container form .error-message{
+    
+    color: red;
+    font-size: 18px;
+    font-weight: 800;
+    /* margin-top: 2vh; */
+    /* margin-bottom: 2vh; */
+    text-align: center;
+}
+.big-container form .success-message{
+    color:rgb(16, 214, 16);
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+.sign-up{
     margin-top: 2vh;
 }
+.sign-up h3{
+    margin-top: 2vh;
+    text-align: center;
+}
+
 
 @media  (max-width: 768px) {
     .big-container {
