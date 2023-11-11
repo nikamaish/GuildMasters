@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './MainPage/Main.jsx';
 import Userprofile from './userProfile/Userprofile.jsx';
 import Cart from './cart/Cart.jsx';
+import Login from './userProfile/Login.jsx';
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/userProfile" component={Userprofile} />
+            <Route path="/login" component={Login} />
             <Route path='/cart' component={Cart}/>
           </Switch>
         </div>

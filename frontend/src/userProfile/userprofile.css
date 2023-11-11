@@ -1,6 +1,6 @@
 .userProfile {
     width: 100%;
-    height: 110vh;
+    height: 115vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,8 +24,7 @@
     font-family: 'Nunito', sans-serif;
     align-self: center; /* Aligning h2 to the top of the container */
     /* margin-bottom: 10vh; */
-    margin: 5vh 0
-
+    margin: 2vh 0 5vh 0;
 
 }
 
@@ -65,9 +64,14 @@
     color: #fff;
 }
 .big-container form p {
-    margin-top: 10vh;
  font-size: 15px;   
  font-weight: 800;
+ margin-top: 7vh;
+}
+.big-container form a, h3{
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 2vh;
 }
 
 @media  (max-width: 768px) {

@@ -42,4 +42,46 @@ router.post('/', (req, res) => {
   });
 });
 
+
+router.get('/', (req, res) => {
+  res.status(200).json({
+    msg: 'userProfile route is working'
+  });
+});
+
+
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ error: "Email and password are required." });
+  }
+
+  User.findOne({ email: email })
+    .exec()
+    .then(user => {
+      if (!user) {
+        return res.status(401).json({ error: "Authentication failed." });
+      }
+
+      bcrypt.compare(password, user.password, (err, result) => {
+        if (err) {
+          return res.status(401).json({ error: "Authentication failed." });
+        }
+
+        if (result) {
+          return res.status(200).json({ message: "Authentication successful." });
+        } else {
+          return res.status(401).json({ error: "Authentication failed." });
+        }
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: err
+      });
+    });
+});
+
+
 module.exports = router;
