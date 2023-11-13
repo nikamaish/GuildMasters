@@ -72,8 +72,8 @@
   .events{
     flex-direction: column;
 
-    height: 200vh;
-     /* margin-top: 100px; */
+    height: 270vh;
+     padding-bottom: 100px;
   }
   
   .sections {

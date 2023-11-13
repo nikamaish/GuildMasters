@@ -112,7 +112,20 @@
   margin-top: 10px;
   /* transition: transform 0.2s; */
 }
-
+.search-bar{
+  margin-left: 20vh;
+  margin-top: 6vh;
+  width: 20%;
+  height: 8vh;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  background-color: #f5f5f5;
+  color: #000;
+  transition: transform 0.2s;
+}
 .genre-selection button.selected {
   background-color: #023e8a; /* Change the background color to a different color to indicate selection */
   color: #fff; /* Change text color */
@@ -121,11 +134,6 @@
   border-radius: 15px;
 }
 
-/* games.css */
-
-/* Original CSS code here... */
-
-/* Media Query for Mobile Devices */
 
 @media (max-width: 768px) {
   .games {
@@ -144,6 +152,12 @@
     font-size: 20px; /* Increase font size for mobile */
     margin: 10px; /* Adjust margin for mobile */
     padding: 5px; /* Adjust padding for mobile */
+  }
+
+  .search-bar{
+    width: 80%;
+    margin-right: 20vh;
+    height: 5vh;
   }
 
   .product-card {

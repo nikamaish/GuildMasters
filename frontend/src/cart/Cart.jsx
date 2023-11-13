@@ -1,18 +1,18 @@
+// Cart.jsx
+
 import React from 'react';
 
-const Cart = ({ cartItems }) => {
-  console.log('Cart component rendered with cartItems:', cartItems);
-  if (!cartItems ) {
-    return <p>No items in the cart.</p>;
-  }
+const Cart = ({ cartItems = [] }) => {
+  console.log('Cart component received cartItems:', cartItems);
 
   return (
     <div className="cart">
-      <h2>Shopping Cart</h2>
+      <h2>Your Cart</h2>
       <ul>
-        {cartItems.map((item) => (
-          <li key={item.id}>
-            {item.name} - {item.price}
+        {cartItems.map((item, index) => (
+          <li key={index}>
+            <span>{item.name}</span>
+            <span>{item.price}</span>
           </li>
         ))}
       </ul>
