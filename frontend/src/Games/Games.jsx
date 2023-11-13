@@ -4,18 +4,17 @@ import Cart from '../cart/Cart.jsx';
 import { halloweenProducts, topTrendingProducts } from '../data.jsx';
 
 const Games = () => {
+  const PAGE_PRODUCTS = 'product';
+  const PAGE_CART = 'cart';
   const [selectedGenre, setSelectedGenre] = useState('Top Trending');
-  const [cartItems, setCartItems] = useState([]);
+  const [cart, setCart] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [page, setPage] = useState(PAGE_PRODUCTS);
 
   const handleGenreClick = (genre) => {
     setSelectedGenre(genre);
     setSearchQuery(''); // Clear search query when changing genres
-  };
-
-  const handleAddToCart = (product) => {
-    setCartItems((prevCartItems) => [...prevCartItems, product]);
   };
 
   const handleSearch = (query) => {
@@ -24,7 +23,7 @@ const Games = () => {
 
   useEffect(() => {
     const productsByGenre = getProductsByGenre();
-    
+
     // Filter products based on both genre and searchQuery
     const filtered = productsByGenre.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -44,9 +43,57 @@ const Games = () => {
     } else if (selectedGenre === 'Halloween') {
       return halloweenProducts;
     }
+    // Add a default return or handle other cases if needed
+    return [];
   };
 
   const products = searchQuery ? filteredProducts : getProductsByGenre();
+
+  const addToCart = (product) => {
+    console.log('we are in addToCart function');
+    setCart([...cart, {...product}]);
+  };
+
+  const navigateTo = (nextPage) => {
+    setPage(nextPage);
+  };
+
+  const removeFromCart = (productToRemove) => {
+    setCart(cart.filter((product) => product !== productToRemove));
+  }
+
+  const renderProducts = () => (
+    <>
+      {/* <h1>Products</h1> */}
+      {products.map((product) => (
+        <div className="product-card" key={product.id}>
+          <img src={product.img} alt={product.name} />
+          <div className="product-details">
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
+            <button onClick={() => addToCart(product)}>Add to Cart</button>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+
+  const renderCart = () => (
+    <>
+      {cart.map((product) => (
+        <div className="product-card" key={product.id}>
+          <img src={product.img} alt={product.name} />
+          <div className="product-details">
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
+            <button onClick={() => removeFromCart(product)}>Remove From Cart</button>
+          </div>
+        </div>
+      ))}
+    </>
+  );
 
   return (
     <div className="games">
@@ -60,27 +107,26 @@ const Games = () => {
             {genreButton.label}
           </button>
         ))}
-        <input className='search-bar'
+
+      <input
+          className="search-bar"
           type="text"
           placeholder="Search..."
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
         />
       </div>
+
+      <header>
+        <button onClick={() => navigateTo(PAGE_CART)} className='page'>Go to cart ({cart.length}) </button>
+      <button onClick={() => navigateTo(PAGE_PRODUCTS)} className='page'>View Products</button>
+      </header>
+
+
       <div className="card-list">
-        {products && products.map((product) => (
-          <div className="product-card" key={product.id}>
-            <img src={product.img} alt={product.name} />
-            <div className="product-details">
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
-              <p>{product.price}</p>
-              <button onClick={() => handleAddToCart(product)}>Buy Now</button>
-            </div>
-          </div>
-        ))}
+        {page === PAGE_PRODUCTS && renderProducts()}
+        {page === PAGE_CART && renderCart()}
       </div>
-      {/* <Cart cartItems={cartItems} /> */}
     </div>
   );
 };

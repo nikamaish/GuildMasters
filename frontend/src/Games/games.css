@@ -1,7 +1,7 @@
 /* games.css */
 .games {
   width: 100%;
-  height: 200vh;
+  height: 230vh;
   background-color: black;
   color: white;
   font-family: 'Nunito', sans-serif;
@@ -13,7 +13,7 @@
   text-decoration: none;
   padding-right: 100px;
   margin-bottom: 20px; /* Common bottom margin for both buttons */
-  margin-left: 10vh;
+  margin-left: 30vh;
 }
 
 .genre-selection button {
@@ -46,7 +46,7 @@
 .product-card {
   border: 1px solid #fff;
   margin: 8px;
-  margin-bottom: 30vh;
+  margin-bottom: 40vh;
   width: 200px;
   height: 250px; /* Adjust the card height as needed */
   display: flex;
@@ -112,6 +112,16 @@
   margin-top: 10px;
   /* transition: transform 0.2s; */
 }
+
+.page{
+margin: 5vh;
+border-radius: 5px;
+padding: 10px;
+border: none;
+background-color: #023e8a;
+color: #fff;
+cursor: pointer;
+}
 .search-bar{
   margin-left: 20vh;
   margin-top: 6vh;
@@ -176,5 +186,9 @@
     font-size: 12px; /* Reduce font size for mobile */
   }
   
- 
+ .page{
+  justify-content: center;
+  margin-left: 5vh;
+
+ }
 }
