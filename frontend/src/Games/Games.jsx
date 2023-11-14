@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './games.css';
 import Cart from '../cart/Cart.jsx';
 import { halloweenProducts, topTrendingProducts } from '../data.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 
 const Games = () => {
   const PAGE_PRODUCTS = 'product';
@@ -81,19 +85,24 @@ const Games = () => {
 
   const renderCart = () => (
     <>
-      {cart.map((product) => (
-        <div className="product-card" key={product.id}>
-          <img src={product.img} alt={product.name} />
-          <div className="product-details">
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            <button onClick={() => removeFromCart(product)}>Remove From Cart</button>
+      {cart.length === 0 ? (
+        <p>Cart is empty</p>
+      ) : (
+        cart.map((product) => (
+          <div className="product-card" key={product.id}>
+            <img src={product.img} alt={product.name} />
+            <div className="product-details">
+              <h2>{product.name}</h2>
+              <p>{product.description}</p>
+              <p>{product.price}</p>
+              <button onClick={() => removeFromCart(product)}>Remove</button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
     </>
   );
+  
 
   return (
     <div className="games">
@@ -108,18 +117,24 @@ const Games = () => {
           </button>
         ))}
 
+
       <input
-          className="search-bar"
-          type="text"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={(e) => handleSearch(e.target.value)}
-        />
+        className="search-bar"
+        type="text"
+        placeholder="Search..."
+        value={searchQuery}
+        onChange={(e) => handleSearch(e.target.value)}
+      />
+
+        
       </div>
 
       <header>
-        <button onClick={() => navigateTo(PAGE_CART)} className='page'>Go to cart ({cart.length}) </button>
-      <button onClick={() => navigateTo(PAGE_PRODUCTS)} className='page'>View Products</button>
+      <button onClick={() => navigateTo(PAGE_PRODUCTS)} className='page'><FontAwesomeIcon icon={faGamepad} size='lg'/></button>
+      <button onClick={() => navigateTo(PAGE_CART)} className='page'>
+      <FontAwesomeIcon icon={faShoppingCart}  />
+      <span style={{ marginLeft: '0.5rem' }}>{cart.length}</span>
+    </button>
       </header>
 
 
