@@ -88,21 +88,17 @@ const Games = () => {
       {cart.length === 0 ? (
         <p>Cart is empty</p>
       ) : (
-        <div className="cart-container">
-          {cart.map((product) => (
-            <div className="rectangle" key={product.id}>
-              <div className="product-card">
-                <img src={product.img} alt={product.name} />
-                <div className="product-details">
-                  <h2>{product.name}</h2>
-                  <p>{product.description}</p>
-                  <p>{product.price}</p>
-                  <button onClick={() => removeFromCart(product)}>Remove</button>
-                </div>
-              </div>
+        cart.map((product) => (
+          <div className="product-card" key={product.id}>
+            <img src={product.img} alt={product.name} />
+            <div className="product-details">
+              <h2>{product.name}</h2>
+              <p>{product.description}</p>
+              <p>{product.price}</p>
+              <button onClick={() => removeFromCart(product)}>Remove From Cart</button>
             </div>
-          ))}
-        </div>
+          </div>
+        ))
       )}
     </>
   );

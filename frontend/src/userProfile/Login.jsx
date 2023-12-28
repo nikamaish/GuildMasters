@@ -1,39 +1,40 @@
 import React, { useState } from 'react';
 import './userprofile.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/userprofile/login', {
+      const response = await fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {
-          'content-type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
-        // Handle successful response
-        setSuccessMessage('User logged in successfully!');
+        const data = await response.json();
         setErrorMessage(''); // Clear any previous error message
+
+        // Redirect to another page or perform any action upon successful login
+        history.push('/');
+
       } else {
         // Handle error response
-        const data = await response.json();
-        setErrorMessage(data.error || 'Error logging in');
-        setSuccessMessage('');
+        const errorData = await response.json();
+        setErrorMessage(errorData.error || 'Error logging in');
       }
     } catch (error) {
       console.error('Error:', error);
       setErrorMessage('An unexpected error occurred.');
-      setSuccessMessage('');
     }
   };
 
@@ -56,15 +57,13 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Continue</button>
-            {successMessage && <p className="success-message">{successMessage}</p>}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className='sign-up'>            
-            <p>Do not have an account</p>
-            <h3 >
-              <Link to="userProfile">Sign Up Here</Link>
-            </h3>
+              <p>Do not have an account</p>
+              <h3 >
+                <Link to="/userProfile">Sign Up Here</Link>
+              </h3>
             </div>
-
           </form>
         </div>
       </div>
