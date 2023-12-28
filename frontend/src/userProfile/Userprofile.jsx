@@ -14,7 +14,7 @@ const Userprofile = () => {
     // preventing the default behavior is often done to handle form submissions asynchronously without causing a full page reload. It allows you to perform actions like making an asynchronous request to a server, updating the UI based on the response, and handling errors, all without navigating away from the current page.
 
     try {
-      const response = await fetch('http://localhost:5000/userprofile', {
+      const response = await fetch('https://backedddn.onrender.com/userprofile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
