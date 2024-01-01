@@ -5,36 +5,43 @@ import { Link } from 'react-router-dom';
 const Userprofile = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVerify, setPasswordVerify] = useState('');
 
-  const [successMessage, setSuccessMessage]= useState('');
-  const [errorMessage, setErrorMessage]= useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // preventing the default behavior is often done to handle form submissions asynchronously without causing a full page reload. It allows you to perform actions like making an asynchronous request to a server, updating the UI based on the response, and handling errors, all without navigating away from the current page.
 
     try {
-      const response = await fetch('https://backedddn.onrender.com/userprofile', {
+      if (password !== passwordVerify) {
+        setErrorMessage('Passwords do not match.');
+        return;
+      }
+
+      const response = await fetch('http://localhost:5000/auth/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        credentials: 'include', // Include credentials (cookies)
+        body: JSON.stringify({ email, password, passwordVerify }),
       });
 
       if (response.ok) {
-        // Handle successful response (e.g., redirect or show success message)
-        // console.log('User profile created successfully!');
-
-        setSuccessMessage('User profile created successfully!');
-        setErrorMessage(''); // Clear any previous error message
-
+        try {
+          const data = await response.json();
+          setSuccessMessage(data.message || 'User profile created successfully!');
+          setErrorMessage('');
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
+          setErrorMessage('Invalid JSON response from the server.');
+          setSuccessMessage('');
+        }
       } else {
-        // Handle error response (e.g., show error message)
-        // console.error('Error creating user profile');
-        
-        const data = await response.json();
-        setErrorMessage(data.error || 'Error in creating user profile');
+        const data = await response.text(); // Get the response as text
+        setErrorMessage(data || 'Error in creating user profile');
+        setSuccessMessage('');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -61,12 +68,18 @@ const Userprofile = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <input
+              type="password"
+              placeholder="Verify Password"
+              value={passwordVerify}
+              onChange={(e) => setPasswordVerify(e.target.value)}
+            />
             <button type="submit">Continue</button>
             <p>By continuing, you agree to our User Agreement and Privacy Policy.</p>
             {successMessage && <p className="success-message">{successMessage}</p>}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <p>Already have a account</p>
-            <h3><Link to='login'>Log In Here</Link></h3>
+            <p>Already have an account</p>
+            <h3><Link to='/login'>Log In Here</Link></h3>
           </form>
         </div>
       </div>

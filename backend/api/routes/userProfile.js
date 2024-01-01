@@ -15,28 +15,41 @@ router.get('/', (req, res) => {
 router.post('/userProfile', (req, res) => {
   const { email, password } = req.body;
 
+  console.log(email + " " + password);
   if (!email || !password) {
     return res.status(400).json({ error: "Email and password are required." });
   }
 
-  bcrypt.hash(password, 10, (err, hash) => {
-    if (err) {
-      return res.status(500).json({ error: err });
-    } else {
-      const user = new User({
-        email: email,
-        password: hash
-      });
+  // Check if a user with the provided email already exists
+  User.findOne({ email: email })
+    .then(existingUser => {
+      if (existingUser) {
+        return res.status(400).json({ error: "User with this email already exists." });
+      }
 
-      user.save()
-        .then(result => {
-          res.status(201).json({ new_user: result });
-        })
-        .catch(error => {
-          res.status(500).json({ error: error });
-        });
-    }
-  });
+      // If the user doesn't exist, proceed to create a new user
+      bcrypt.hash(password, 10, (err, hash) => {
+        if (err) {
+          return res.status(500).json({ error: err });
+        } else {
+          const user = new User({
+            email: email,
+            password: hash
+          });
+
+          user.save()
+            .then(result => {
+              res.status(201).json({ new_user: result });
+            })
+            .catch(error => {
+              res.status(500).json({ error: error });
+            });
+        }
+      });
+    })
+    .catch(error => {
+      res.status(500).json({ error: error });
+    });
 });
 
 router.post('/login', async (req, res) => {
@@ -51,6 +64,11 @@ router.post('/login', async (req, res) => {
 
     if (!user) {
       return res.status(401).json({ error: "No user found." });
+    }
+
+    // Add a check to ensure the user has signed up
+    if (!user.password) {
+      return res.status(401).json({ error: "User has not signed up." });
     }
 
     const result = await bcrypt.compare(password, user.password);
@@ -77,5 +95,6 @@ router.post('/login', async (req, res) => {
     return res.status(500).json({ error: "Internal server error." });
   }
 });
+
 
 module.exports = router;

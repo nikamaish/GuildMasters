@@ -12,7 +12,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://backedddn.onrender.com/login', {
+      const apiUrl = 'http://localhost:5000/auth';  // Specify the API endpoint directly
+      const response = await fetch(`${apiUrl}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,15 +23,15 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        setErrorMessage(''); // Clear any previous error message
+        setErrorMessage('');
 
-        // Redirect to another page or perform any action upon successful login
-        history.push('/');
+        // Redirect to another page upon successful login
+        history.push('/'); // Change '/dashboard' to your desired route
 
       } else {
         // Handle error response
         const errorData = await response.json();
-        setErrorMessage(errorData.error || 'Error logging in');
+        setErrorMessage(errorData.errorMessage || 'Error logging in');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -60,7 +61,7 @@ const Login = () => {
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className='sign-up'>            
               <p>Do not have an account</p>
-              <h3 >
+              <h3>
                 <Link to="/userProfile">Sign Up Here</Link>
               </h3>
             </div>
