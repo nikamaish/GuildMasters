@@ -13,13 +13,23 @@ import Main from './MainPage/Main.jsx';
 import Userprofile from './userProfile/Userprofile.jsx';
 import Cart from './cart/Cart.jsx';
 import Login from './userProfile/Login.jsx';
+import Logout from './userProfile/Logout.jsx';
+import { AuthProvider } from './AuthContext/AuthContext.js';
+
 
 
 
 const App = () => {
+
+  // export y
+
+
   return (
-   
+    
+    <AuthProvider>
       <Router>
+
+        
         <div>
           <Navbar />
 
@@ -28,10 +38,12 @@ const App = () => {
             <Route path="/userProfile" component={Userprofile} />
             <Route path="/login" component={Login} />
             <Route path='/cart' component={Cart}/>
+            <Route path='/logout' component={Logout}/>
           </Switch>
         </div>
+        
       </Router>
-   
+      </AuthProvider>
   );
 };
 

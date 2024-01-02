@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+// Navbar.js
+import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext/AuthContext';
+import Logout from '../userProfile/Logout';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    // If the user is not yet loaded, set up a listener or loading indicator
+    if (user === null) {
+      // Set up any loading indicator or listener here
+    }
+  }, [user]);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -27,12 +37,16 @@ const Navbar = () => {
         </button>
         <div className="navbar-menu">
           <ul className={`navbar-items ${showMenu ? 'active' : ''}`}>
-            {/* Updated Links to navigate to different routes */}
             <li><Link to="/">Home</Link></li>
             <li><a href="/">About Us</a></li>
             <li><a href="/">Contact</a></li>
-            {/* <li><Link to='/cart'><FontAwesomeIcon icon={faShoppingCart} /></Link></li> */}
-            <li><Link to="/userProfile"><FontAwesomeIcon icon={faUser} /></Link></li>
+            {user ? (
+              // If the user is authenticated, show the logout button
+              <Link to="/logout">Logout</Link>
+            ) : (
+              // If the user is not authenticated, show the user icon
+              <Link to="/userProfile">User Profile</Link>
+            )}
           </ul>
         </div>
       </nav>

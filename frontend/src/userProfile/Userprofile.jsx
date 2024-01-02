@@ -33,6 +33,7 @@ const Userprofile = () => {
           const data = await response.json();
           setSuccessMessage(data.message || 'User profile created successfully!');
           setErrorMessage('');
+          window.location.reload();
         } catch (error) {
           console.error('Error parsing JSON:', error);
           setErrorMessage('Invalid JSON response from the server.');

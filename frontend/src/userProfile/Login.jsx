@@ -1,18 +1,20 @@
+// Login.js
 import React, { useState } from 'react';
-import './userprofile.css';
 import { Link, useHistory } from 'react-router-dom';
+import { useAuth } from '../AuthContext/AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const history = useHistory();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const apiUrl = 'http://localhost:5000/auth';  // Specify the API endpoint directly
+      const apiUrl = 'http://localhost:5000/auth';
       const response = await fetch(`${apiUrl}/login`, {
         method: 'POST',
         headers: {
@@ -25,11 +27,12 @@ const Login = () => {
         const data = await response.json();
         setErrorMessage('');
 
+        // Set the user in the authentication context upon successful login
+        login(data); // Adjust this based on your actual user data structure
+
         // Redirect to another page upon successful login
         history.push('/'); // Change '/dashboard' to your desired route
-
       } else {
-        // Handle error response
         const errorData = await response.json();
         setErrorMessage(errorData.errorMessage || 'Error logging in');
       }
@@ -59,7 +62,7 @@ const Login = () => {
             />
             <button type="submit">Continue</button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <div className='sign-up'>            
+            <div className='sign-up'>
               <p>Do not have an account</p>
               <h3>
                 <Link to="/userProfile">Sign Up Here</Link>
