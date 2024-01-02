@@ -4,6 +4,7 @@ import { useAuth } from '../AuthContext/AuthContext';
 import { useHistory } from 'react-router-dom';
 const Logout = () => {
   const { logout } = useAuth();
+  const history = useHistory();
 
   useEffect(() => {
     const handleLogout = async () => {
@@ -17,6 +18,7 @@ const Logout = () => {
         if (response.ok) {
           // Successful logout on the backend, now perform the logout on the frontend
           logout();
+          history.push('/');
           
         } else {
           // Handle logout failure

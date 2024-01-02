@@ -79,12 +79,12 @@
   }
   
   .navbar-items {
-    list-style: none;
+    display: inline;
+    margin-right: 20px;
+    align-items: center; /* Center items vertically */
     display: flex;
-    margin: -10px;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    font-family: 'Roboto', sans-serif;
   }
   
   .navbar-items.active {
@@ -98,7 +98,7 @@
   }
   
   .navbar-items li {
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
     padding: 20px;
   }
