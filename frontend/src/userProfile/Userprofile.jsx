@@ -19,7 +19,7 @@ const Userprofile = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/auth/', {
+      const response = await fetch('https://gm-backend-qfd5.onrender.com/auth/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const Userprofile = () => {
             <p>By continuing, you agree to our User Agreement and Privacy Policy.</p>
             {successMessage && <p className="success-message">{successMessage}</p>}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <p>Already have an account</p>
+            <p>Already have an account?</p>
             <h3><Link to='/login'>Log In Here</Link></h3>
           </form>
         </div>

@@ -42,10 +42,10 @@ const Navbar = () => {
             <li><a href="/">Contact</a></li>
             {user ? (
               // If the user is authenticated, show the logout button
-              <Link to="/logout"><FontAwesomeIcon icon={faRightFromBracket}/></Link>
+              <Link to="/logout" className='user-icon'><FontAwesomeIcon icon={faRightFromBracket}/></Link>
             ) : (
               // If the user is not authenticated, show the user icon
-              <Link to="/userProfile"><FontAwesomeIcon icon= {faUser}/> </Link>
+              <Link to="/userProfile" className='user-icon'><FontAwesomeIcon icon= {faUser}/> </Link>
             )}
           </ul>
         </div>

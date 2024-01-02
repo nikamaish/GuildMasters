@@ -9,7 +9,7 @@ const Logout = () => {
   useEffect(() => {
     const handleLogout = async () => {
       try {
-        const apiUrl = 'http://localhost:5000/auth';
+        const apiUrl = 'https://gm-backend-qfd5.onrender.com/auth';
         const response = await fetch(`${apiUrl}/logout`, {
           method: 'GET',
           credentials: 'include', // Include credentials for sessions/cookies

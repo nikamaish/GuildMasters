@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const apiUrl = 'http://localhost:5000/auth';
+      const apiUrl = 'https://gm-backend-qfd5.onrender.com/auth';
       const response = await fetch(`${apiUrl}/login`, {
         method: 'POST',
         headers: {
@@ -63,7 +63,7 @@ const Login = () => {
             <button type="submit">Continue</button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className='sign-up'>
-              <p>Do not have an account</p>
+              <p>Do not have an account?</p>
               <h3>
                 <Link to="/userProfile">Sign Up Here</Link>
               </h3>

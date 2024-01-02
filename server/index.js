@@ -27,9 +27,9 @@ app.use(cors(corsOptions));
 
 
 
-// app.get('/test',(req,res)=>{
-// res.send('It works')
-// })
+app.get('/',(req,res)=>{
+res.send('It works')
+})
 
 
 // console.log('MDB_URL:', process.env.MDB_URL);
