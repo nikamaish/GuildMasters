@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const apiUrl = 'https://gm-backend-qfd5.onrender.com/auth';
+      const apiUrl = 'https://gm-backend-two.vercel.app/auth';
       const response = await fetch(`${apiUrl}/login`, {
         method: 'POST',
         headers: {

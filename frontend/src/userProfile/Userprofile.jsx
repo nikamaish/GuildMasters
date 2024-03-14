@@ -19,7 +19,7 @@ const Userprofile = () => {
         return;
       }
 
-      const response = await fetch('https://gm-backend-qfd5.onrender.com/auth/', {
+      const response = await fetch('https://gm-backend-two.vercel.app/auth/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
