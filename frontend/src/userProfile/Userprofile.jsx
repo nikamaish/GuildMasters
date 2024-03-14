@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './userprofile.css'; 
 import { Link } from 'react-router-dom';
 
+
 const Userprofile = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,6 +10,8 @@ const Userprofile = () => {
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +36,9 @@ const Userprofile = () => {
           const data = await response.json();
           setSuccessMessage(data.message || 'User profile created successfully!');
           setErrorMessage('');
-          window.location.reload();
+          // window.location.reload();
+          window.location.href = '/';
+
         } catch (error) {
           console.error('Error parsing JSON:', error);
           setErrorMessage('Invalid JSON response from the server.');
