@@ -12,7 +12,7 @@
   .navbar {
     background-color: #061E45; /* Dark background color */
     color: #fff; /* Text color */
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from '../cart/Cart.jsx';
+import Cart from './Summary.jsx';
 
 const CartPage = ({ cartItems }) => {
     console.log('Cart Page component received cartItems:', cartItems);

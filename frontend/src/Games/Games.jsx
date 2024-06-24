@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './games.css';
-import Cart from '../cart/Cart.jsx';
-import { halloweenProducts, topTrendingProducts } from '../data.jsx';
+import { halloweenProducts, topTrendingProducts } from '../data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faGamepad } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShoppingCart, faGamepad } from '@fortawesome/free-solid-svg-icons';
 
 const Games = () => {
   const PAGE_PRODUCTS = 'product';
@@ -18,7 +15,7 @@ const Games = () => {
 
   const handleGenreClick = (genre) => {
     setSelectedGenre(genre);
-    setSearchQuery(''); // Clear search query when changing genres
+    setSearchQuery('');
   };
 
   const handleSearch = (query) => {
@@ -27,12 +24,9 @@ const Games = () => {
 
   useEffect(() => {
     const productsByGenre = getProductsByGenre();
-
-    // Filter products based on both genre and searchQuery
     const filtered = productsByGenre.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
-
     setFilteredProducts(filtered);
   }, [selectedGenre, searchQuery]);
 
@@ -47,7 +41,6 @@ const Games = () => {
     } else if (selectedGenre === 'Halloween') {
       return halloweenProducts;
     }
-    // Add a default return or handle other cases if needed
     return [];
   };
 
@@ -55,7 +48,7 @@ const Games = () => {
 
   const addToCart = (product) => {
     console.log('we are in addToCart function');
-    setCart([...cart, {...product}]);
+    setCart([...cart, { ...product }]);
   };
 
   const navigateTo = (nextPage) => {
@@ -64,19 +57,22 @@ const Games = () => {
 
   const removeFromCart = (productToRemove) => {
     setCart(cart.filter((product) => product !== productToRemove));
-  }
+  };
 
   const renderProducts = () => (
     <>
-      {/* <h1>Products</h1> */}
       {products.map((product) => (
         <div className="product-card" key={product.id}>
           <img src={product.img} alt={product.name} />
           <div className="product-details">
             <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+            <div className="price-heart">
+              <p>{product.price}</p>
+              <button onClick={() => addToCart(product)} className="heart-button">
+                <FontAwesomeIcon icon={faHeart} size="s" />
+              </button>
+            </div>
+            <button className="buy-button">Buy Now</button>
           </div>
         </div>
       ))}
@@ -93,17 +89,16 @@ const Games = () => {
             <img src={product.img} alt={product.name} />
             <div className="product-details">
               <h2>{product.name}</h2>
-              <p>{product.description}</p>
-              <p>{product.price}</p>
-              <button onClick={() => removeFromCart(product)}>Remove From Cart</button>
+              <div className="price-heart">
+                <p>{product.price}</p>
+              </div>
+              <button className='remove' onClick={() => removeFromCart(product)}>Remove </button>
             </div>
           </div>
         ))
       )}
     </>
   );
-  
-  
 
   return (
     <div className="games">
@@ -117,28 +112,23 @@ const Games = () => {
             {genreButton.label}
           </button>
         ))}
-
-
-      <input
-        className="search-bar"
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={(e) => handleSearch(e.target.value)}
-      />
-
-        
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={(e) => handleSearch(e.target.value)}
+        />
       </div>
-
       <header>
-      <button onClick={() => navigateTo(PAGE_PRODUCTS)} className='page'><FontAwesomeIcon icon={faGamepad} size='lg'/></button>
-      <button onClick={() => navigateTo(PAGE_CART)} className='page'>
-      <FontAwesomeIcon icon={faShoppingCart}  />
-      <span style={{ marginLeft: '0.5rem' }}>{cart.length}</span>
-    </button>
+        <button onClick={() => navigateTo(PAGE_PRODUCTS)} className='page'>
+          <FontAwesomeIcon icon={faGamepad} size='lg' />
+        </button>
+        <button onClick={() => navigateTo(PAGE_CART)} className='page'>
+          <FontAwesomeIcon icon={faShoppingCart} />
+          <span style={{ marginLeft: '0.5rem' }}>{cart.length}</span>
+        </button>
       </header>
-
-
       <div className="card-list">
         {page === PAGE_PRODUCTS && renderProducts()}
         {page === PAGE_CART && renderCart()}

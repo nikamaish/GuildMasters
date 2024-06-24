@@ -39,6 +39,7 @@ const Navbar = () => {
           <ul className={`navbar-items ${showMenu ? 'active' : ''}`}>
             <li><Link to="/">Home</Link></li>
             <li><a href="/">About Us</a></li>
+            <li><a href="/games">Games</a></li>
             <li><a href="/">Contact</a></li>
             {user ? (
               // If the user is authenticated, show the logout button

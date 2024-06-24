@@ -11,7 +11,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './MainPage/Main.jsx';
 import Userprofile from './userProfile/Userprofile.jsx';
-import Cart from './cart/Cart.jsx';
+import Cart from './cart/Summary.jsx';
 import Login from './userProfile/Login.jsx';
 import Logout from './userProfile/Logout.jsx';
 import { AuthProvider } from './AuthContext/AuthContext.js';
