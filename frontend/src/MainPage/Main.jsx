@@ -15,7 +15,7 @@ const Main = () => {
         <Intro />
         <Mid />
         <Events />
-        <Games />
+        {/* <Games /> */}
         {/* <Cart/> */}
         <Subscription />
         <Footer />

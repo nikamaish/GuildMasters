@@ -47,6 +47,7 @@ const db = mongoose.connection;
 db.on('error',(err)=>{
     console.error('Connection Error:',err.message)
 });
+// Events (error and open) are set up to handle connection errors and successful connections, respectively.
 
 db.once('open', () => {
     console.log('Connected to the database');
