@@ -1,0 +1,67 @@
+/* Container for the summary */
+.summary-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading style */
+  .summary-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Image style */
+  .summary-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Description paragraph style */
+  .summary-container p {
+    line-height: 1.6;
+  }
+  
+  /* Price style */
+  .summary-container .price {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  /* Video URL link style */
+  .summary-container a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .summary-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Rating style */
+  .summary-container .rating {
+    font-size: 16px;
+    color: #28a745;
+    margin-top: 10px;
+  }
+  
+  /* Additional details section */
+  .summary-container .additional-details {
+    margin-top: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .summary-container {
+      padding: 15px;
+    }
+  }
+  

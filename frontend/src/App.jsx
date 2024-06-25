@@ -15,6 +15,7 @@ import Cart from './cart/Summary.jsx';
 import Login from './userProfile/Login.jsx';
 import Logout from './userProfile/Logout.jsx';
 import { AuthProvider } from './AuthContext/AuthContext.js';
+import Summary from './cart/Summary.jsx';
 
 
 
@@ -38,7 +39,7 @@ const App = () => {
             <Route path="/userProfile" component={Userprofile} />
             <Route path='/games' component={Games}></Route>
             <Route path="/login" component={Login} />
-            {/* <Route path='/cart' component={Cart}/> */}
+            <Route path='/summary' component={Summary}/>
             <Route path='/logout' component={Logout}/>
           </Switch>
         </div>

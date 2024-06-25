@@ -5,6 +5,8 @@ export const halloweenProducts = [
       name: 'Dead-Island',
       price: '$19.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/lZqrG1bdGtg?si=sDRzGB_t0bJnqTfQ',
+      rating: 4.1,
     },
     {
       id: 2,
@@ -12,6 +14,8 @@ export const halloweenProducts = [
       name: 'The Last Of Us',
       price: '$29.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/R2Ebc_OFeug?si=npafVYZcJW9II4wj',
+      rating: 4.8,
     },
     {
       id: 3,
@@ -19,6 +23,8 @@ export const halloweenProducts = [
       name: 'Dead By Daylight',
       price: '$29.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/JGhIXLO3ul8?si=0WyAypvuJJ_Z9moh',
+      rating: 4.5,
     },
 
     {
@@ -27,6 +33,8 @@ export const halloweenProducts = [
       name: 'Red Dead Redemption 2',
       price: '$29.99',
       description: 'Base Game',
+      videoUrl:'https://youtu.be/gmA6MrX81z4?si=sxpAVFQX3PyPAteL',
+      rating:4.7
     },
   ];
 
@@ -37,6 +45,8 @@ export const halloweenProducts = [
       name: 'Hogwards Legacy',
       price: '$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/1O6Qstncpnc?si=kVIVLejGycEBgaQf',
+      rating: 4.8,
     },
     {
       id:6,
@@ -44,6 +54,8 @@ export const halloweenProducts = [
       name: 'Rocket League',
       price: '$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/1O6Qstncpnc?si=kVIVLejGycEBgaQf',
+      rating: 4.2,
     },
 
     {
@@ -52,6 +64,8 @@ export const halloweenProducts = [
       name: 'Assassins Creed',
       price: '$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/-pUhraVG7Ow?si=LSb9Ka5TlyWURysp',
+      rating: 4.8,
     },
     {
       id:8,
@@ -59,6 +73,8 @@ export const halloweenProducts = [
       name:'Cyberpunk 2077',
       price:'$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/8X2kIfS6fb8?si=TDVRvfR9-CGM1geT',
+      rating: 4.9,
     },
     {
       id:9,
@@ -66,6 +82,8 @@ export const halloweenProducts = [
       name:'GTA V',
       price:'$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/QkkoHAzjnUs?si=i1hwe5ixnPzzTifJ',
+      rating: 4.9,
     },
   
     
@@ -75,6 +93,9 @@ export const halloweenProducts = [
       name:'Hitman 3',
       price:'$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/Z29ORu6_p34?si=SQD25Q0CAd_r7N7z',
+      rating: 4.6,
+      
     },
     {
       id:11,
@@ -82,13 +103,18 @@ export const halloweenProducts = [
       name:'FarCry 6',
       price:'$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/-IJuKT1mHO8?si=RldB9UZ4nEbHeIhS',
+      rating: 4.7,
+      
     },
     {
       id:12,
       img:"https://m.media-amazon.com/images/M/MV5BM2U1OWNlY2UtZmNlNi00NmExLWIwMzctMjZkMjc4NzM5MTBlXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg",
-      name:'Watch Dogs',
+      name:'Watch Dogs 2',
       price:'$39.99',
       description: 'Base Game',
+      videoUrl: 'https://youtu.be/hh9x4NqW0Dw?si=1mtSHH2E3PjYwgSG',
+      rating: 4.3,
     }
     
   ];

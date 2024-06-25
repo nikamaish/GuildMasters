@@ -18,6 +18,7 @@
 
 .genre-selection button {
   background: none;
+  color: white;
   border: none;
   cursor: pointer;
   margin: 30px 30px;

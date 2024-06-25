@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import './games.css';
 import { halloweenProducts, topTrendingProducts } from '../data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,6 +13,8 @@ const Games = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [page, setPage] = useState(PAGE_PRODUCTS);
+
+  const history = useHistory();
 
   const handleGenreClick = (genre) => {
     setSelectedGenre(genre);
@@ -47,7 +50,6 @@ const Games = () => {
   const products = searchQuery ? filteredProducts : getProductsByGenre();
 
   const addToCart = (product) => {
-    console.log('we are in addToCart function');
     setCart([...cart, { ...product }]);
   };
 
@@ -59,6 +61,15 @@ const Games = () => {
     setCart(cart.filter((product) => product !== productToRemove));
   };
 
+  const handleBuyNow = (product) => {
+    console.log('Product selected:', product);
+    history.push({
+      pathname: '/summary',
+      state: { product },
+    });
+  };
+  
+
   const renderProducts = () => (
     <>
       {products.map((product) => (
@@ -69,10 +80,10 @@ const Games = () => {
             <div className="price-heart">
               <p>{product.price}</p>
               <button onClick={() => addToCart(product)} className="heart-button">
-                <FontAwesomeIcon icon={faHeart} size="s" />
+                <FontAwesomeIcon icon={faHeart} size="lg" />
               </button>
             </div>
-            <button className="buy-button">Buy Now</button>
+            <button onClick={() => handleBuyNow(product)} className="buy-button">Buy Now</button>
           </div>
         </div>
       ))}
@@ -92,7 +103,7 @@ const Games = () => {
               <div className="price-heart">
                 <p>{product.price}</p>
               </div>
-              <button className='remove' onClick={() => removeFromCart(product)}>Remove </button>
+              <button className='remove' onClick={() => removeFromCart(product)}>Remove</button>
             </div>
           </div>
         ))
