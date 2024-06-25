@@ -1,67 +1,104 @@
 /* Container for the summary */
+.summary{
+    background-color: black;
+}
 .summary-container {
-    max-width: 600px;
+    display: flex;
+    max-width: 85%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    background-color: black;
+    color: white;
+  
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;
   }
-  
-  /* Heading style */
-  .summary-container h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+
+/* Left section style */
+.summary-left {
+  flex: 2;
+
+}
+
+/* Right section style */
+.summary-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px;
+  background-color: black;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading style */
+.summary-left p {
+  font-size: 34px;
+  text-align: left;
+}
+
+/* Description paragraph style */
+.summary-left .description {
+    font-size: 20px;
+  margin-bottom: 15px;
+  color: rgb(222, 218, 212);
+}
+
+/* Rating style */
+.summary-left .rating {
+  font-size: 16px;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+/* Video container style */
+.summary-left .video-container {
+  margin-bottom: 15px;
+}
+
+.summary-left .video-container iframe {
+  width: 100%;
+  height: 315px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Price style */
+.summary-right .price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  /* margin-bottom: 20px; */
+}
+
+/* Buy button style */
+.summary-right .buy-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.summary-right .buy-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .summary-container {
+    flex-direction: column;
+    padding: 15px;
   }
-  
-  /* Image style */
-  .summary-container img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Description paragraph style */
-  .summary-container p {
-    line-height: 1.6;
-  }
-  
-  /* Price style */
-  .summary-container .price {
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 15px;
-  }
-  
-  /* Video URL link style */
-  .summary-container a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .summary-container a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Rating style */
-  .summary-container .rating {
-    font-size: 16px;
-    color: #28a745;
-    margin-top: 10px;
-  }
-  
-  /* Additional details section */
-  .summary-container .additional-details {
+
+  .summary-right {
     margin-top: 20px;
+    align-items: center;
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .summary-container {
-      padding: 15px;
-    }
-  }
-  
+}

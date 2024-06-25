@@ -130,7 +130,7 @@
 }
 
 .product-details button {
-  background-color: #023e8a;
+  background-color: #007bff;
   color: #fff;
   border: none;
   padding: 5px 15px;
@@ -165,10 +165,11 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #007bff;
 }
 
 .buy-button:hover {
-  background-color: #04821f;
+  background-color: #0056b3;
 }
 .remove{
   display: block;
