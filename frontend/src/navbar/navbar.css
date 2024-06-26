@@ -40,25 +40,22 @@ body {
 .menu-icon {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
   width: 30px;
-  background-color: #fff;
-  transition: 0.4s;
+  height: 20px;
   position: relative;
-  margin-left: 200px;
 }
 
 .menu-icon span {
   display: block;
-  position: absolute;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: #fff; 
-  transition: 0.4s;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .menu-icon.active span:nth-child(1) {
-  transform: rotate(45deg) translate(-5px, 6px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .menu-icon.active span:nth-child(2) {
@@ -66,11 +63,7 @@ body {
 }
 
 .menu-icon.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(-5px, -6px);
-}
-
-.menu-icon.active .close-icon {
-  display: block; /* Display the X sign when the menu is active */
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .navbar-menu {
@@ -118,40 +111,41 @@ body {
 /* Media query for responsive menu */
 @media (max-width: 700px) {
   .menu-button {
-      display: block; /* Show the button */
+    display: block; /* Show the button */
   }
 
   .navbar-items {
-      display: none; /* Hide the menu items */
+    display: none; /* Hide the menu items */
   }
 
   .navbar-items.active {
-      display: flex;
-      width: 80%; /* Ensure the menu spans less width of the screen */
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px 10px; 
-      top: 53px; /* Ensure the menu appears just below the navbar */
-      right: -10%; /* Adjust the right margin to center the menu */
-      background-color: black;
-      z-index: 1;
-      opacity: 0.95;
+    display: flex;
+    width: 80%; /* Ensure the menu spans less width of the screen */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 10px; 
+    top: 53px; /* Ensure the menu appears just below the navbar */
+    right: -22px; /* Adjust the right margin to center the menu */
+    background-color: black;
+    z-index: 1;
+    opacity: 0.95;
   }
 
   .navbar-items li {
-      padding: 10px 0;
-      width: 100%; /* Make sure the items take the full width */
-      text-align: center; /* Align text to the left */
+    padding: 10px 0;
+    width: 100%; /* Make sure the items take the full width */
+    text-align: center; /* Align text to the center */
   }
 
   .navbar-items.active .user-icon {
-      padding-top: 10%;
-      padding-left: 20%;
-      display: flex;
-      margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Make sure the icon takes the full width */
+    padding-top: 10%;
   }
 
   .navbar-items li:hover {
-      font-size: 25px;
+    font-size: 25px;
   }
 }
