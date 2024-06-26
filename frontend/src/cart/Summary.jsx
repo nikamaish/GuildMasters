@@ -3,6 +3,7 @@ import './summary.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import swal from 'sweetalert';
 
 const Summary = ({ location }) => {
   const product = location.state?.product;
@@ -19,7 +20,12 @@ const Summary = ({ location }) => {
   };
 
   const payment = () => {
-    alert('Payment Successful');
+    swal({
+      title: "Order Placed Successfully!",
+      text: "Thank you for your purchase. Your order has been placed.",
+      icon: "success",
+      button: "OK",
+    });
   };
 
   const renderStars = (rating) => {

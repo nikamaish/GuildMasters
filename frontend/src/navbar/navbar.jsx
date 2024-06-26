@@ -40,7 +40,7 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><a href="/">About Us</a></li>
             <li><a href="/games">Games</a></li>
-            <li><a href="/">Contact</a></li>
+            {/* <li><a href="/">Contact</a></li> */}
             {user ? (
               // If the user is authenticated, show the logout button
               <Link to="/logout" className='user-icon'><FontAwesomeIcon icon={faRightFromBracket}/></Link>
