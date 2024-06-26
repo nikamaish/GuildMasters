@@ -1,24 +1,22 @@
 /* Container for the summary */
-.summary{
-    background-color: black;
+.summary {
+  background-color: black;
 }
 .summary-container {
-    display: flex;
-    max-width: 85%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: black;
-    color: white;
-  
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    gap: 20px;
-  }
+  display: flex;
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
 
 /* Left section style */
 .summary-left {
   flex: 2;
-
 }
 
 /* Right section style */
@@ -40,23 +38,41 @@
   text-align: left;
 }
 
+/* Description and rating container */
+.summary-left .description-rating {
+  display: flex;
+  gap: 20px;
+}
+
 /* Description paragraph style */
 .summary-left .description {
-    font-size: 20px;
-  margin-bottom: 15px;
+  font-size: 20px;
   color: rgb(222, 218, 212);
+  margin-bottom: 30px;
 }
 
 /* Rating style */
 .summary-left .rating {
-  font-size: 16px;
-  color: #28a745;
-  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  display: flex;
+}
+
+/* Star styles */
+.star {
+  color: gray;
+}
+
+.star.filled {
+  color: gold;
 }
 
 /* Video container style */
 .summary-left .video-container {
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .summary-left .video-container iframe {
@@ -71,11 +87,10 @@
   font-size: 24px;
   font-weight: bold;
   color: #007bff;
-  /* margin-bottom: 20px; */
 }
 
 /* Buy button style */
-.summary-right .buy-button {
+.summary-right .buy-buttons {
   background-color: #007bff;
   color: white;
   border: none;
@@ -86,7 +101,7 @@
   margin-top: 10px;
 }
 
-.summary-right .buy-button:hover {
+.summary-right .buy-buttons:hover {
   background-color: #0056b3;
 }
 

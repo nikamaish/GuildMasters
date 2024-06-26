@@ -130,7 +130,7 @@
 }
 
 .product-details button {
-  background-color: #007bff;
+  background-color: #2e89eb;
   color: #fff;
   border: none;
   padding: 5px 15px;
@@ -140,6 +140,8 @@
   font-family: 'Nunito', sans-serif;
   cursor: pointer;
   margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+  
 }
 
 .page {
@@ -158,7 +160,7 @@
 
 .product-details .buy-button {
   margin-top: 20px; /* Margin above the "Buy" button */
-  font-size: 1.2em; /* Make the button larger */
+  /* font-size: 1.2em;s */
   padding: 5px 30px; /* Increase padding for better clickability */
   display: block; /* Make the button a block element */
   margin: 20px auto 0; /* Center the button horizontally */
@@ -166,6 +168,9 @@
   border-radius: 5px;
   cursor: pointer;
   background-color: #007bff;
+  font-family: 'Inter', sans-serif;
+  
+  
 }
 
 .buy-button:hover {
