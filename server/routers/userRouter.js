@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
         .json({ errorMessage: 'An account with this email already exists.' });
 
     // Hash the password
-    const salt = await bcrypt.genSalt();
+    const salt = await bcrypt.genSalt(12);
     // salt is a random string of characters
     const passwordHash = await bcrypt.hash(password, salt);
 
@@ -125,7 +125,6 @@ router.post('/login',async(req,res)=>{
         // res.status(201).json(savedUser); // Respond with the saved user data or a success message
         res.status(200).json({ token, user: { id: existingUser._id, email: existingUser.email } });
 
-        // does above line of code requried?
     }
     catch(err){
         res.status(500).json({ errorMessage: 'Internal Server Error' });
@@ -138,19 +137,30 @@ router.post('/login',async(req,res)=>{
 router.get('/logout', (req, res) => {
     res.cookie('token', '', {
         httpOnly: true,
-        expires: new Date(0),
-        domain: 'localhost', // Add this line if needed
+        expires: new Date(0),       // expire immediately
+        domain: 'gm-backend-two.vercel.app',
+        path: '/',
+        secure: true, 
+        sameSite: 'none'          
     }).send();
-
-    // empty value? because we are deleting the cookie and not sending any data in the response body, we are just sending an empty cookie
-    // httpOnly:true? because we want to delete the cookie on the client side , send is used to send the cookie to the client
-    // why syntax is like this? because we are not sending any data in the response body
-    // new Date(0) is a date in the past, it expries the cookie immediately and the browser will delete the cookie but when the user press logout button then the user will be logged out immediately but the user will be logged out only on the client side, the user will still be logged in on the server side.
-    // we can also delete the cookie on the server side but we will not do that because it is not a good practice to store the token in a cookie on the server side.
-// but without entering related email and password, how can we logout?
-// we can logout by deleting the cookie on the client side
 });
 
 
 
 module.exports = router;
+
+
+// When a cookie is set with SameSite: 'none', it means the cookie will be sent with requests originating from any site, including cross-site requests. This allows cookies (such as your authentication token) to be included in requests between different sites or domains, which can be necessary when your frontend and backend are hosted on different domains.
+// Implications for different frontend site:
+// The cookie is sent by the browser on requests from your frontend site to your backend site if the backend cookie is configured with SameSite: 'none' and Secure: true.
+// This is necessary for cross-origin authentication flows (e.g., frontend is at example.com and backend is at api.example.com or another domain like your Vercel deployment).
+// However, enabling SameSite: 'none' also means the cookie is more exposed to potential CSRF (Cross-Site Request Forgery) attacks, because it will be sent with requests from other origins.
+// To mitigate risks, httpOnly: true prevents client-side JavaScript from accessing the cookie, and additional CSRF protection strategies (like CSRF tokens or checking Origin headers) should be implemented server-side.
+
+
+// Your token stored in a cookie configured this way is:
+// Protected from being accessed by client-side scripts (httpOnly).
+// Removed immediately on logout (expires: new Date(0)).
+// Scoped and sent only for your app domain (domain) and all paths (path: '/').
+// Sent only over HTTPS (secure).
+// Allowed to be sent in cross-origin requests if needed (sameSite: 'none').
