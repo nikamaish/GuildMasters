@@ -116,7 +116,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .heart-button {
@@ -140,8 +139,7 @@
   font-family: 'Nunito', sans-serif;
   cursor: pointer;
   margin-top: 10px;
-    font-family: 'Inter', sans-serif;
-  
+  font-family: 'Inter', sans-serif;
 }
 
 .page {
@@ -169,25 +167,25 @@
   cursor: pointer;
   background-color: #007bff;
   font-family: 'Inter', sans-serif;
-  
-  
 }
 
 .buy-button:hover {
   background-color: #0056b3;
 }
-.remove{
-  display: block;
-  margin: 20px auto 0; 
-}
-.remove:hover{
-  background-color: #ff0000;
 
+.remove {
+  display: block;
+  margin: 20px auto 0;
+}
+
+.remove:hover {
+  background-color: #ff0000;
 }
 
 @media (max-width: 768px) {
   .games {
     height: auto; /* Adjust height for smaller screens */
+    min-height: 150vh; /* Set a minimum height for smaller screens */
   }
 
   .genre-selection {
@@ -229,5 +227,4 @@
     justify-content: center;
     margin-left: 5vh;
   }
-
 }

@@ -19,7 +19,7 @@ export const halloweenProducts = [
     },
     {
       id: 3,
-      img: "https://m.media-amazon.com/images/M/MV5BMTY2YTE2ZGEtNGZhMy00YTdjLWI1ZjQtNmE4ODM2MTYzNTI3XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.jpg",
+      img: "https://upload.wikimedia.org/wikipedia/en/b/b7/Dead_by_Daylight_Steam_header.jpg",
       name: 'Dead By Daylight',
       price: '$24.99',
       description: 'Base Game',
@@ -69,7 +69,7 @@ export const halloweenProducts = [
     },
     {
       id:8,
-      img:"https://m.media-amazon.com/images/M/MV5BYWFhOGQwODctMDFmNC00NGEyLWI5NTUtZDliYzRmYmM4MzJlXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.jpg",
+      img:"https://www.dolby.com/siteassets/xf-site/content-detail-pages/cyberpunk-2077.jpg",
       name:'Cyberpunk 2077',
       price:'$39.99',
       description: 'Base Game',
@@ -109,7 +109,7 @@ export const halloweenProducts = [
     },
     {
       id:12,
-      img:"https://m.media-amazon.com/images/M/MV5BM2U1OWNlY2UtZmNlNi00NmExLWIwMzctMjZkMjc4NzM5MTBlXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg",
+      img:"https://m.media-amazon.com/images/I/91RQ-RJDlLL._AC_UF1000,1000_QL80_.jpg",
       name:'Watch Dogs 2',
       price:'$29.99',
       description: 'Base Game',

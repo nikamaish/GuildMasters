@@ -48,7 +48,9 @@ router.post('/', async (req, res) => {
   
     const token = jwt.sign({
         user:savedUser._id //payload
-    },process.env.JWT_SECRET); //signature 
+    },process.env.JWT_SECRET,
+    { expiresIn: '1h' }
+  ); //signature 
 
     console.log(token);  
     // it is a good practice to store the token in a cookie, cookie is a small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing.
